@@ -4,12 +4,21 @@ This project is made to show people a sample of my skills. Something more than w
 (Curriculum Vitae)
 
 **Technologies and Skills used:**
-*HTML5
-*CSS3
-*Javascript
-*React
-*I Material
-*Styled Components
-*Axios
-*EmailJS
-*Formik
+
+* HTML5
+* 
+* CSS3
+* 
+* Javascript
+* 
+* React
+* 
+* I Material
+* 
+* Styled Components
+* 
+* Axios
+* 
+* EmailJS
+* 
+* Formik
