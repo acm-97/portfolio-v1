@@ -82,15 +82,15 @@ export default function ContactSection({ closeDialog }) {
   const sendMessage = (values) => {
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_SERVICE,
-        process.env.NEXT_PUBLIC_TEPMLATE,
+        process.env.NEXT_PUBLIC_EmailJS_SERVICE,
+        process.env.NEXT_PUBLIC_EmailJS_TEPMLATE,
         // e.target,
         {
           from_name: values.from_name,
           message: values.message,
           from_email: values.from_email,
         },
-        process.env.NEXT_PUBLIC_USER
+        process.env.NEXT_PUBLIC_EmailJS_USER
       )
       .then(
         (result) => {
