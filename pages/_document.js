@@ -10,8 +10,16 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet="utf-8" />
-
+          {/* <meta charSet="utf-8" /> */}
+          <meta
+            name="description"
+            content="Portfolio for promote my work, skills ..."
+          />
+          <meta
+            name="keywords"
+            content="HTML, CSS, JavaScript, React, Next.js, Material UI"
+          />
+          <meta name="author" content="Alejandro Cabrera Mena" />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
             rel="stylesheet"
