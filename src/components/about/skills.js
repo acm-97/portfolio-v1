@@ -1,14 +1,7 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Paper,
-  Typography,
-} from "@material-ui/core";
-import { styled } from "@material-ui/core/styles";
+import { Grid, Paper, Typography } from "@material-ui/core";
+import { styled, makeStyles } from "@material-ui/core/styles";
 import ArrowForwardIosSharpIcon from "@material-ui/icons/ArrowForwardIosSharp";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
@@ -17,7 +10,7 @@ import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 const Accordion = styled((props) => (
   <MuiAccordion disablegutters="true" elevation={0} square {...props} />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
+  borderBottom: `1px solid ${theme.palette.divider}`,
   "&:not(:last-child)": {
     borderBottom: 0,
   },
@@ -28,11 +21,10 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.8rem" }} />}
     {...props}
   />
 ))(({ theme }) => ({
-  backgroundColor: theme.palette.common.white,
   flexDirection: "row-reverse",
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
     transform: "rotate(90deg)",
@@ -44,7 +36,7 @@ const AccordionSummary = styled((props) => (
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
-  borderTop: "1px solid rgba(0, 0, 0, .125)",
+  borderTop: "1px solid rgba(0, 0, 0, 0.1)",
 }));
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -52,71 +44,89 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   textAlign: "center",
   color: theme.palette.text.secondary,
-  height: 60,
+  minHeight: "60",
   lineHeight: "60px",
 }));
 
-const languajes = {
-  type: "Languajes",
-  items: ["HTML5", "CSS3", "Javascript", "Python"],
+const frontEnd = {
+  type: "Front End",
+  items: [
+    "HTML5",
+    "CSS3",
+    "Javascript",
+    "React",
+    "Redux",
+    "Angular",
+    "Next.js",
+    "Bootstrap",
+    "Angular Material",
+    "Material UI",
+    "Syled Components",
+  ],
 };
 
-const frameworks = { type: "Frameworks", items: ["Angular", "Next.js"] };
+const backEnd = { type: "Back End", items: ["Node.js", "Python"] };
 
-const frameworksCSS = {
-  type: "Frameworks CSS",
-  items: ["Bootstrap", "Angular Material", "Material UI", "React Semantic UI"],
+const dataBase = {
+  type: "Database",
+  items: ["MongoDB", "PostgreSQL"],
 };
 
 const others = {
   type: "Others",
-  items: ["React.js", "GitHub", "Git", "GitLab"],
+  items: ["GitHub", "Git", "GitLab"],
 };
 
-const skills = [languajes, frameworks, frameworksCSS, others];
+const skills = [frontEnd, backEnd, dataBase, others];
+
+const useStyles = makeStyles((theme) => ({
+  resalted: {
+    color: theme.palette.warning.main,
+  },
+}));
 
 export default function Skills() {
   const [expanded, setExpanded] = React.useState("Languajes");
+  const classes = useStyles();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
 
   return (
-    <Grid container spacing={0}>
-      <Grid item xs={12}>
-        <Item elevation={1}>
-          <Typography variant="h3" component="h2">
-            Skills
-          </Typography>
-          {skills.map((skillType) => (
-            <div key={skillType.type}>
-              <Accordion
-                expanded={expanded === skillType.type}
-                onChange={handleChange(skillType.type)}
+    <>
+      <Item elevation={6}>
+        <Typography variant="h3" component="h2">
+          <span className={classes.resalted}>Skills</span>
+        </Typography>
+        {skills.map((skillType) => (
+          <div key={skillType.type}>
+            <Accordion
+              key={skillType.type}
+              expanded={expanded === skillType.type}
+              onChange={handleChange(skillType.type)}
+            >
+              <AccordionSummary
+                aria-controls="panel1d-content"
+                id="panel1d-header"
               >
-                <AccordionSummary
-                  aria-controls="panel1d-content"
-                  id="panel1d-header"
-                >
-                  <Typography variant="h6" component="h2">
-                    {skillType.type}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Grid container spacing={2}>
-                    {skillType.items.map((skill) => (
-                      <Grid item xs={6} key={uuid()}>
-                        <Item elevation={6}>{skill}</Item>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-          ))}
-        </Item>
-      </Grid>
-    </Grid>
+                <Typography variant="h6" component="h2">
+                  <span className={classes.resalted}>{skillType.type}</span>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Grid container spacing={2}>
+                  {skillType.items.map((skill) => (
+                    <Grid item xs={6} key={uuid()}>
+                      <Item elevation={6}>{skill}</Item>
+                    </Grid>
+                  ))}
+                </Grid>
+              </AccordionDetails>
+            </Accordion>
+          </div>
+        ))}
+      </Item>
+    </>
   );
 }

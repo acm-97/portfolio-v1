@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { makeStyles } from "@material-ui/core/styles";
+import Image from "next/image";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   CssBaseline,
   AppBar,
@@ -9,15 +10,18 @@ import {
   IconButton,
   Slide,
   useScrollTrigger,
+  Paper,
+  Button,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import HomeIcon from "@material-ui/icons/Home";
 import InfoIcon from "@material-ui/icons/Info";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
-// import ListIcon from "@material-ui/icons/List";
-import ContactMailIcon from "@material-ui/icons/ContactMail";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import Drawer from "./drower";
+import DialogContact from "./dialogContact";
 
 export const items = [
   {
@@ -36,7 +40,7 @@ export const items = [
   },
   {
     id: 2,
-    href: "#",
+    href: "/projects-github",
     duration: 1300,
     header: "Projects",
     description: "A sample of the projects I have worked on",
@@ -50,14 +54,14 @@ export const items = [
     description: "Skills I possess as a member and developer in projects",
     icon: <ListIcon color="primary" />,
   }, */
-  {
+  /* {
     id: 4,
     href: "/#contact",
     duration: 1900,
     header: "Contact",
     description: "Send any question or a working proposal",
     icon: <ContactMailIcon color="primary" />,
-  },
+  }, */
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -65,11 +69,18 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   container: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.background.paper,
+    minHeight: "93.5vh",
+    [theme.breakpoints.up("md")]: {
+      minHeight: "90vh",
+    },
+  },
+  toolbar: {
+    backgroundColor: theme.palette.primary.main,
   },
   menuLink: {
     marginRight: theme.spacing(2),
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
     // border: `2px solid ${theme.palette.primary.dark}`,
 
     color: theme.palette.secondary,
@@ -92,13 +103,14 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  paperChildrens: {
+    minHeight: "90vh",
+    margin: "0",
+  },
 }));
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -109,15 +121,12 @@ const HideOnScroll = (props) => {
 
 HideOnScroll.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
 export default function Layout(props) {
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <>
@@ -126,12 +135,15 @@ export default function Layout(props) {
       <HideOnScroll {...props}>
         <div className={classes.grow}>
           <AppBar>
-            <Toolbar>
+            <Toolbar className={classes.toolbar}>
               <div className={classes.grow}>
                 <div className={classes.sectionDesktop}>
+                  <Image src="/logo.png" width="50" height="50" />
                   {items.map((menu) => (
                     <Link href={menu.href} key={menu.id}>
-                      <a className={classes.menuLink}>{menu.header}</a>
+                      <Button color="secondary" size="large">
+                        {menu.header}
+                      </Button>
                     </Link>
                   ))}
                 </div>
@@ -141,33 +153,33 @@ export default function Layout(props) {
               </div>
               <IconButton
                 color="inherit"
-                onClick={() => window.open("https://github.com/", "_blank")}
+                onClick={() => props.setDarkMode(!props.darkMode)}
               >
-                <GitHubIcon />
+                {theme.palette.type === "light" ? (
+                  <Brightness4Icon />
+                ) : (
+                  <BrightnessHighIcon />
+                )}
               </IconButton>
               <IconButton
-                edge="end"
                 color="inherit"
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/alejandro-cabrera-mena-2210381b8/",
+                    "https://github.com/acm-97?tab=projects",
                     "_blank"
                   )
                 }
               >
-                <LinkedInIcon />
+                <GitHubIcon />
               </IconButton>
             </Toolbar>
           </AppBar>
           <Toolbar />
         </div>
       </HideOnScroll>
-      <div
-        className={
-          classes.container
-        } /* style={{ backgroundColor: "#f7f7f7" }} */
-      >
+      <div className={classes.container}>
         {props.children}
+        <DialogContact />
       </div>
     </>
   );

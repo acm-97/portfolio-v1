@@ -1,27 +1,17 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Backdrop,
-  Button,
-  Container,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { makeStyles, styled } from "@material-ui/core/styles";
+import Link from "next/link";
+import { Button, Container, Grid, Paper, Typography } from "@material-ui/core";
+import SocialLinks from "../socialLinks";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    minHeight: "100vh",
-    paddingTop: "12vh",
     color: theme.palette.secondary.main,
-    minHeight: "98vh",
+    backgroundColor: "transparent",
   },
   overlay: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    top: "0",
-    left: "0",
     backgroundColor: "rgba(0,0,0,0.8)",
+    minHeight: "100vh",
   },
   imageDescription: {
     borderRadius: "50vh",
@@ -32,27 +22,41 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "justify",
   },
   section: {
-    backgroundImage: `url("/freelancer.jpg")`,
+    backgroundImage: `url("/about.jpg")`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
     position: "relative",
     minHeight: "100vh",
   },
   sectionDesktop: {
-    minHeight: "100vh",
-    display: "none",
+    // minHeight: "100vh",
+    
     [theme.breakpoints.up("sm")]: {
       display: "flex",
     },
   },
   sectionMobile: {
-    minHeight: "100vh",
+    // minHeight: "100vh",
     display: "initial",
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
+  resalted: {
+    color: theme.palette.warning.main,
+  },
+}));
+
+const Item = styled(Paper)(({ theme }) => ({
+  // TODO withStyles removal
+  ...theme.typography.body2,
+  textAlign: "justify",
+  lineHeight: "60px",
+  padding: "4vh",
+  color: theme.palette.secondary.main,
+  backgroundColor: "transparent",
 }));
 
 export default function AboutSection() {
@@ -68,11 +72,11 @@ export default function AboutSection() {
           alignItems="center"
           justify="center"
         >
-          <Grid container item md={8}>
-            <Container maxWidth="lg" className={classes.container}>
+          <Grid container item md={7}>
+            <Item>
               <Grid
                 container
-                spacing={0}
+                spacing={2}
                 direction="column"
                 alignItems="center"
                 justify="center"
@@ -86,48 +90,54 @@ export default function AboutSection() {
                 </Grid>
 
                 <div className={classes.sectionDesktop}>
-                  <Grid item md={12}>
+                  <Grid item md={10}>
+                    <Typography
+                      gutterBottom
+                      variant="h4"
+                      component="h2"
+                      align="justify"
+                      className={classes.resalted}
+                    >
+                      Hey there,
+                    </Typography>
                     <Typography
                       gutterBottom
                       variant="h6"
                       component="h2"
-                      className={classes.description}
+                      align="justify"
                     >
-                      Hello, my name is Alejandro Cabrera Mena, I am an
-                      enthusiast of we programming, willing to learn new
-                      technologies and skills. In the last years I have done
+                      My name is{" "}
+                      <span className={classes.resalted}>
+                        Alejandro Cabrera Mena
+                      </span>
+                      , I am an enthusiast of we programming, willing to learn
+                      new technologies and skills. In the last years I have done
                       some personal projects and some as freelancer. My main
-                      works are done with the MERN stack as well as with the
-                      MEAN stack. I am always looking for projects where I can
-                      test my knowledge and skills and of course where I can
-                      improve myself as a professional...
+                      works are done with the{" "}
+                      <span className={classes.resalted}> MERN stack</span> as
+                      well as with the{" "}
+                      <span className={classes.resalted}>MEAN stack</span> . I
+                      am always looking for projects where I can test my
+                      knowledge and skills and of course where I can improve
+                      myself as a professional...
                     </Typography>
-                    <Button size="large" variant="contained" color={"primary"}>
-                      Read More
-                    </Button>
+                    <Link href="/about">
+                      <Button
+                        size="large"
+                        variant="contained"
+                        color={"primary"}
+                      >
+                        Read More
+                      </Button>
+                    </Link>
                   </Grid>
-                </div>
-
-                <div className={classes.sectionMobile}>
-                  <Grid item md={12}>
-                    <Typography
-                      gutterBottom
-                      variant="h6"
-                      component="h2"
-                      className={classes.description}
-                    >
-                      Hello, my name is Alejandro Cabrera Mena, I am an
-                      enthusiast of we programming, willing to learn new
-                      technologies and skills. In the last years I have done
-                      some personal projects and some as freelancer...
-                    </Typography>
-                    <Button size="large" variant="contained" color={"primary"}>
-                      Read More
-                    </Button>
+                  <Grid item md={1} />
+                  <Grid item md={1}>
+                    <SocialLinks />
                   </Grid>
                 </div>
               </Grid>
-            </Container>
+            </Item>
           </Grid>
         </Grid>
       </div>

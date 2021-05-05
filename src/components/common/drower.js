@@ -1,28 +1,28 @@
 import React from "react";
 import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Avatar,
   SwipeableDrawer,
   List,
-  Divider,
   IconButton,
   ListItemAvatar,
+  Grid,
+  Divider,
 } from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import { items } from "./layout";
+import SocialLinks from "../socialLinks";
 
 const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
-  },
-  fullList: {
-    width: "auto",
+    position: "relative",
+    minHeight: "100vh",
   },
 }));
 
@@ -45,29 +45,43 @@ export default function Drawer() {
     setState({ ...state, left: open });
   };
 
-  const list = () => (
+  const DrawerContainer = () => (
     <div
       className={clsx(classes.list)}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List>
-        {items.map((menu, index) => (
-          <ListItem button key={menu.id}>
-            <ListItemAvatar>
-              <Avatar>{menu.icon}</Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={menu.header} />
-          </ListItem>
-        ))}
-      </List>
+      <Grid container direction="column" alignContent="center" justify="center">
+        <Grid item md={12}>
+          <Image src="/logo.png" width="200" height="200" />
+        </Grid>
+        <Divider />
+        <Grid item md={12}>
+          <List>
+            {items.map((menu, index) => (
+              <Link href={menu.href}>
+                <ListItem button key={menu.id}>
+                  <ListItemAvatar>
+                    <Avatar>{menu.icon}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary={menu.header} />
+                </ListItem>
+              </Link>
+            ))}
+          </List>
+        </Grid>
+      </Grid>
+      <div style={{ position: "absolute", bottom: 0 }}>
+        <Divider />
+        <SocialLinks />
+      </div>
     </div>
   );
 
   return (
     <div>
-      <React.Fragment>
+      <>
         <IconButton
           edge="start"
           className={classes.menuButton}
@@ -85,9 +99,9 @@ export default function Drawer() {
           onClose={toggleDrawer(false)}
           onOpen={toggleDrawer(true)}
         >
-          {list()}
+          <DrawerContainer />
         </SwipeableDrawer>
-      </React.Fragment>
+      </>
     </div>
   );
 }
