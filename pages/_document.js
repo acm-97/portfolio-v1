@@ -22,6 +22,11 @@ class MyDocument extends Document {
           <meta name="author" content="Alejandro Cabrera Mena" />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
+            rel="icon"
+            href="/logo-bordles.png
+          "
+          />
+          <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
           />
