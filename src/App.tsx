@@ -1,8 +1,13 @@
 import { memo } from 'react';
 
+import { Navbar, Home } from './components';
+
 const App = () => (
   <>
-    <div style={{ minHeight: '120vh' }}>App Root</div>
+    <Navbar />
+    <div className="px-14">
+      <Home />
+    </div>
   </>
 );
 
