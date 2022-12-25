@@ -83,3 +83,20 @@ body {
   background-color: var(--lightest-navy);
   color: var(--lightest-slate);
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-color), #6ee7b7,#4338ca, var(--primary-color));
+  background-size: 400%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
