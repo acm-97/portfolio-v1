@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const Home = () => (
   <div className=" min-h-[100vh] px-14">
-    <h1 className="gradient-text text-3xl font-black">Home Loaded</h1>
+    <h1 className="gradient-text font-black">Home Loaded</h1>
   </div>
 );
 

@@ -48,7 +48,7 @@ body {
 }
 
 .navbar-hiden {
-  transform: translateY(calc(-1 * 5rem));
+  transform: translateY(calc(-1 * 6rem));
   box-shadow: none;
 }
 
