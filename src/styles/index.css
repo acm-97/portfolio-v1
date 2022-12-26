@@ -4,6 +4,9 @@
 
 :root {
   --primary-color: #ccd6f6;
+  --sec-color-light: #99f6e4;
+  --sec-color: #5eead4;
+  --sec-color-dark: #14b8a6;
   --primary-bg: #2a303c;
   --lightest-navy: #233554;
 
@@ -24,6 +27,24 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.sec-color {
+  color: var(--sec-color);
+}
+
+.sec-color-light {
+  color: var(--sec-color-light);
+}
+
+.sec-color-dark {
+  color: var(--sec-color-dark);
+}
+
+.navbar,
+.font-mono {
+  font-family: var(--font-mono);
+}
+
 html {
   box-sizing: border-box;
   width: 100%;
@@ -32,11 +53,46 @@ html {
 
 body {
   font-family: var(--font-sans);
+  padding: 0 9rem;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 1600px;
 }
 
-.navbar,
-.font-mono {
-  font-family: var(--font-mono);
+body a {
+  color: var(--sec-color-light);
+}
+
+.language-selector {
+  color: var(--sec-color-light);
+}
+
+h3 a,
+h4 a,
+.navbar li a {
+  color: var(--primary-color);
+}
+
+h3 a:hover,
+h4 a:hover,
+.navbar li a:hover {
+  color: var(--sec-color-light);
+  text-decoration: underline;
+}
+
+h3 > a:before,
+h4 > a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: var(--sec-color-light);
+  visibility: hidden;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: 0.25s linear;
 }
 
 .navbar-fixed {
@@ -65,6 +121,11 @@ body {
   display: inherit !important;
 }
 
+.section {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -79,13 +140,20 @@ body {
   background-color: var(--primary-bg);
 }
 
-::selection {
-  background-color: var(--lightest-navy);
-  color: var(--lightest-slate);
-}
-
 .gradient-text {
-  background: linear-gradient(90deg, var(--primary-color), #6ee7b7,#4338ca, var(--primary-color));
+  background: linear-gradient(
+    90deg,
+    var(--sec-color-dark),
+    var(--sec-color-dark),
+    var(--primary-color),
+    var(--primary-color),
+    var(--sec-color-dark),
+    var(--sec-color-dark),
+    var(--primary-color),
+    var(--primary-color),
+    var(--sec-color-dark),
+    var(--sec-color-dark)
+  );
   background-size: 400%;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;

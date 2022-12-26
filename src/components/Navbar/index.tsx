@@ -52,18 +52,22 @@ const Navbar = () => {
               <li key={route.name} className="p-3">
                 <a
                   className={classNames(
-                    active === route.path && 'text-teal-300',
-                    'gap-1 p-0 hover:bg-transparent hover:text-teal-300 focus:bg-transparent',
+                    active === route.path && 'sec-color',
+                    'gap-1 p-0 hover:bg-transparent  focus:bg-transparent',
                   )}
                   href={route.path}
                   onClick={() => setActive(route.path)}
                 >
-                  <span className="p-0 text-teal-300">{`0${i + 1}.`}</span> {t(route.name.toLowerCase())}
+                  <span className="sec-color p-0">{`0${i + 1}.`}</span> {t(route.name.toLowerCase())}
                 </a>
               </li>
             ))}
             <li className="p-3">
-              <button type="button" onClick={handleLanguage} className="min-h-8 btn h-8 gap-2 p-3 py-0 text-teal-300">
+              <button
+                type="button"
+                onClick={handleLanguage}
+                className="language-selector sec-color min-h-8 btn h-8 gap-2 p-3 py-0"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
