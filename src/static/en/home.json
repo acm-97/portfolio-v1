@@ -1,0 +1,10 @@
+{
+  "salute": "Hi stranger, my name is",
+  "name": "Alejandro Cabrera.",
+  "occupation": {
+    "part1": "I build",
+    "part2": "for the web"
+  },
+  "description": "I am a Software Developer with 3 years of experience, not afraid of challenges and always open to new offers or work experiences.",
+  "downloadResume": "Download Resume"
+}

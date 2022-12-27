@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './tailwind.css';
 
 :root {
   --primary-color: #ccd6f6;
@@ -67,17 +65,27 @@ body a {
   color: var(--sec-color-light);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.1;
+}
+
 h3 a,
 h4 a,
 .navbar li a {
   color: var(--primary-color);
+  text-decoration: none;
 }
 
 h3 a:hover,
 h4 a:hover,
 .navbar li a:hover {
   color: var(--sec-color-light);
-  text-decoration: underline;
 }
 
 h3 > a:before,
@@ -126,6 +134,19 @@ h4 > a:before {
   max-width: 1000px;
 }
 
+.btn-teal {
+  background-color: transparent;
+  color: var(--sec-color);
+  border-color: var(--sec-color);
+  text-transform: capitalize;
+}
+
+.btn-teal:hover {
+  background-color: #134e4a;
+  color: var(--sec-color);
+  border-color: var(--sec-color);
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -166,5 +187,17 @@ h4 > a:before {
   }
   100% {
     background-position: 400%;
+  }
+}
+
+@media (max-width: 1080px) {
+  body {
+    padding: 0 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 2rem;
   }
 }

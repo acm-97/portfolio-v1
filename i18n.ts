@@ -8,9 +8,11 @@ import * as en from '@/static/en';
 const resources = {
   en: {
     common: en.common,
+    home: en.home,
   },
   es: {
     common: es.common,
+    home: es.home,
   },
 };
 

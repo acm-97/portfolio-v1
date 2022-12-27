@@ -5,7 +5,7 @@ import { Navbar, Home } from './components';
 const App = () => (
   <>
     <Navbar />
-    <div className="px-14">
+    <div>
       <Home />
     </div>
   </>

@@ -9,14 +9,14 @@ module.exports = {
   plugins: [
     require('daisyui'),
     plugin(function ({ addBase, theme, addVariant }) {
-      addBase({
-        h1: { fontSize: theme('fontSize.7xl') },
-        h2: { fontSize: theme('fontSize.6xl') },
-        h3: { fontSize: theme('fontSize.3xl') },
-        h4: { fontSize: theme('fontSize.2xl') },
-        h6: { fontSize: theme('fontSize.lg') },
-        h5: { fontSize: theme('fontSize.base') },
-      });
+      // addBase({
+      //   h1: { fontSize: theme('fontSize.7xl') },
+      //   h2: { fontSize: theme('fontSize.6xl') },
+      //   h3: { fontSize: theme('fontSize.3xl') },
+      //   h4: { fontSize: theme('fontSize.2xl') },
+      //   h6: { fontSize: theme('fontSize.lg') },
+      //   h5: { fontSize: theme('fontSize.base') },
+      // });
       addVariant('hocus', ['&:hover', '&:focus']);
     }),
   ],

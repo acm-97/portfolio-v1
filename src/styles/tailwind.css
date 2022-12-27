@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  h1 {
+    font-size: clamp(theme('fontSize.4xl'), 8vw, theme('fontSize.7xl'));
+  }
+
+  h2 {
+    font-size: clamp(theme('fontSize.3xl'), 5vw, theme('fontSize.6xl'));
+  }
+
+  h3 {
+    font-size: clamp(theme('fontSize.2xl'), 5vw, theme('fontSize.3xl'));
+  }
+
+  h4 {
+    font-size: clamp(theme('fontSize.xl'), 5vw, theme('fontSize.2xl'));
+  }
+
+  h5 {
+    font-size: theme('fontSize.lg');
+  }
+
+  h6 {
+    font-size: theme('fontSize.base');
+  }
+}
