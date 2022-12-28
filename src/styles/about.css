@@ -1,0 +1,42 @@
+.grid-ab {
+  color: var(--primary-color-dark);
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3.1rem;
+}
+
+.grid-ab p {
+  margin-bottom: 1.5rem;
+}
+
+.grid-ab p a{
+  color: var(--sec-color);
+}
+
+ul.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8.75rem, 12.5rem));
+  gap: 0 0.625rem;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+ul.skills-list li {
+  position: relative;
+  /* margin-bottom: 0.625rem; */
+  padding-left: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+}
+
+ul.skills-list li::before {
+  content: '</>';
+  position: absolute;
+  left: 0px;
+  color: var(--sec-color);
+  line-height: 0.75rem;
+}

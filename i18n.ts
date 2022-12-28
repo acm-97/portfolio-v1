@@ -9,10 +9,12 @@ const resources = {
   en: {
     common: en.common,
     home: en.home,
+    about: en.about,
   },
   es: {
     common: es.common,
     home: es.home,
+    about: es.about,
   },
 };
 
