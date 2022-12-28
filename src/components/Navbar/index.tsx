@@ -66,7 +66,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={handleLanguage}
-                className="language-selector sec-color min-h-8 btn h-8 gap-2 p-3 py-0"
+                className="sec-color-light sec-color min-h-8 btn h-8 gap-2 p-3 py-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

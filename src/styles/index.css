@@ -1,4 +1,7 @@
 @import './tailwind.css';
+@import './mediaqueries.css';
+@import './navbar.css';
+@import './home.css';
 
 :root {
   --primary-color: #ccd6f6;
@@ -10,6 +13,8 @@
 
   --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  --animation: fadeIn 0.3s ease-in both;
 
   font-size: 16px;
   line-height: 24px;
@@ -26,6 +31,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.primary-bg {
+  background-color: var(--primary-color);
+}
 .sec-color {
   color: var(--sec-color);
 }
@@ -58,10 +66,6 @@ body {
 }
 
 body a {
-  color: var(--sec-color-light);
-}
-
-.language-selector {
   color: var(--sec-color-light);
 }
 
@@ -103,23 +107,6 @@ h4 > a:before {
   transition: 0.25s linear;
 }
 
-.navbar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: transform 0.2s;
-  background-color: rgba(42, 48, 60, 0.85);
-}
-
-.navbar-hiden {
-  transform: translateY(calc(-1 * 6rem));
-  box-shadow: none;
-}
-
-.navbar-boxshadow {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-
 #fixed-button {
   background-color: rgba(42, 42, 42, 0.5);
   border: transparent;
@@ -132,6 +119,16 @@ h4 > a:before {
 .section {
   margin: 0 auto;
   max-width: 1000px;
+}
+
+.numbered-header::after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 20rem;
+  height: 0.1rem;
+  margin-left: 1.2rem;
+  background-color: var(--primary-color);
 }
 
 .btn-teal {
@@ -161,26 +158,6 @@ h4 > a:before {
   background-color: var(--primary-bg);
 }
 
-.gradient-text {
-  background: linear-gradient(
-    90deg,
-    var(--sec-color-dark),
-    var(--sec-color-dark),
-    var(--primary-color),
-    var(--primary-color),
-    var(--sec-color-dark),
-    var(--sec-color-dark),
-    var(--primary-color),
-    var(--primary-color),
-    var(--sec-color-dark),
-    var(--sec-color-dark)
-  );
-  background-size: 400%;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  animation: animate 10s linear infinite;
-}
-
 @keyframes animate {
   0% {
     background-position: 0%;
@@ -190,14 +167,13 @@ h4 > a:before {
   }
 }
 
-@media (max-width: 1080px) {
-  body {
-    padding: 0 6rem;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
   }
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 0 2rem;
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }

@@ -1,0 +1,25 @@
+@media (max-width: 1080px) {
+  body {
+    padding: 0 6rem;
+  }
+
+  .numbered-heading::after {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 2rem;
+  }
+
+  .numbered-heading::after {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .numbered-heading::after {
+    margin-left: 10px;
+  }
+}
