@@ -24,6 +24,8 @@
   left: 0;
   transition: transform 0.2s;
   background-color: rgba(42, 48, 60, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 999;
 }
 
 .navbar-hiden {

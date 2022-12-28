@@ -1,10 +1,10 @@
 @import './tailwind.css';
-@import './mediaqueries.css';
 @import './navbar.css';
 @import './home.css';
 
 :root {
   --primary-color: #ccd6f6;
+  --primary-color-dark: #94a3b8;
   --sec-color-light: #99f6e4;
   --sec-color: #5eead4;
   --sec-color-dark: #14b8a6;
@@ -59,14 +59,43 @@ html {
 
 body {
   font-family: var(--font-sans);
-  padding: 0 9rem;
-  margin: 0px auto;
+  padding: 0 9.6875rem;
+  margin: 0 auto;
   width: 100%;
-  max-width: 1600px;
+  max-width: 100rem;
 }
 
-body a {
-  color: var(--sec-color-light);
+a {
+  color: var(--sec-color);
+}
+
+a:hover {
+  color: var(--sec-color-dark) !important;
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: none;
+  width: 100%;
+}
+
+.underline:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0.1875rem;
+  bottom: 0;
+  left: 0;
+  background: var(--sec-color-light);
+  visibility: hidden;
+  border-radius: 0.3125rem;
+  transform: scaleX(0);
+  transition: 0.25s linear;
+}
+
+.underline:hover:before {
+  visibility: visible !important;
+  transform: scaleX(1) !important;
 }
 
 h1,
@@ -86,27 +115,6 @@ h4 a,
   text-decoration: none;
 }
 
-h3 a:hover,
-h4 a:hover,
-.navbar li a:hover {
-  color: var(--sec-color-light);
-}
-
-h3 > a:before,
-h4 > a:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background: var(--sec-color-light);
-  visibility: hidden;
-  border-radius: 5px;
-  transform: scaleX(0);
-  transition: 0.25s linear;
-}
-
 #fixed-button {
   background-color: rgba(42, 42, 42, 0.5);
   border: transparent;
@@ -118,7 +126,7 @@ h4 > a:before {
 
 .section {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 62.5rem;
 }
 
 .numbered-header::after {
@@ -175,5 +183,35 @@ h4 > a:before {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 1080px) {
+  body {
+    padding: 0 6rem;
+  }
+
+  .numbered-heading::after {
+    width: 12.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 2rem;
+  }
+
+  .numbered-heading::after {
+    width: 100%;
+  }
+
+  .grid-ab {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .numbered-heading::after {
+    margin-left: 0.625rem;
   }
 }
