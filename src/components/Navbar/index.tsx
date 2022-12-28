@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar h-24" />
+      {/* <div className="navbar h-24" /> */}
       <div className="navbar-fixed navbar h-24 bg-base-100 px-9 text-sm">
         <div className="flex-1">
           <a className="btn-ghost btn text-xl normal-case">daisyUI</a>
