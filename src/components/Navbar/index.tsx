@@ -3,7 +3,7 @@ import { memo, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { ArrowSmallUpIcon } from '@heroicons/react/24/outline';
 
-import { scrollToTop } from '@/utils';
+import { HideShowNav, scrollToTop } from '@/utils';
 import { routes } from '@/constants';
 
 // type NavBarProps = {};
@@ -14,29 +14,19 @@ const Navbar = () => {
   const [active, setActive] = useState(location.pathname);
 
   useEffect(() => {
-    const navbar = document.querySelectorAll('.navbar');
-    const button = document.querySelector('#fixed-button');
-
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener('scroll', () => {
-      if (lastScrollY < window.scrollY) {
-        button?.classList.add('fixed-button');
-        navbar?.forEach((nav) => nav.classList.add('navbar-hiden', 'navbar-boxshadow'));
-      } else navbar?.forEach((nav) => nav.classList.remove('navbar-hiden'));
-
-      if (window.scrollY === 0) {
-        button?.classList.remove('fixed-button');
-        navbar?.forEach((nav) => nav.classList.remove('navbar-boxshadow'));
-      }
-
-      lastScrollY = window.scrollY;
-    });
+    HideShowNav();
   });
 
   const handleLanguage = async () => {
     if (i18n.language === 'en') await i18n.changeLanguage('es');
     else await i18n.changeLanguage('en');
+  };
+
+  const onScrollToTop = () => {
+    scrollToTop();
+    window.history.pushState
+      ? window.history.pushState('', '/', window.location.pathname)
+      : (window.location.hash = '');
   };
 
   return (
@@ -91,7 +81,7 @@ const Navbar = () => {
 
       <button
         type="button"
-        onClick={scrollToTop}
+        onClick={onScrollToTop}
         id="fixed-button"
         className="btn-square btn fixed bottom-4 right-2 hidden"
       >

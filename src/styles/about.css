@@ -9,7 +9,7 @@
   margin-bottom: 1.5rem;
 }
 
-.grid-ab p a{
+.grid-ab p a {
   color: var(--sec-color);
 }
 
@@ -21,6 +21,7 @@ ul.skills-list {
   margin: 1.25rem 0 0;
   overflow: hidden;
   list-style: none;
+  margin-bottom: 4rem;
 }
 
 ul.skills-list li {
@@ -39,4 +40,98 @@ ul.skills-list li::before {
   left: 0px;
   color: var(--sec-color);
   line-height: 0.75rem;
+}
+
+.profile-img-container {
+  position: relative;
+}
+
+.profile-img {
+  position: relative;
+  width: 18.75rem;
+  max-width: 18.75rem;
+  height: 18.75rem;
+  max-height: 18.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  background-image: url('profile.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+  z-index: 1;
+  overflow: hidden;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.profile-img-container .profile-img-frame {
+  position: absolute;
+  width: 18.75rem;
+  max-width: 18.75rem;
+  height: 18.2rem;
+  max-height: 18.2rem;
+  border: 1px solid var(--sec-color);
+  border-radius: 0.7rem;
+  z-index: -1;
+  top: 8%;
+  left: 5%;
+  transition: 0.3s;
+}
+
+.profile-img-container:hover .profile-img-frame {
+  transform: scale(1.05);
+  filter: contrast(120%);
+}
+
+.profile-img:hover,
+.profile-img:hover {
+  transform: scale(1.05);
+  filter: contrast(120%);
+}
+
+.profile-img .tag-name,
+.profile-img .tag-occupation {
+  position: absolute;
+  right: 0;
+  padding: 0.5rem 1rem;
+  /* border-radius: 0.5rem 0 0 0.5rem; */
+}
+
+.profile-img .tag-name {
+  bottom: 50px;
+  color: var(--primary-color);
+  background-color: var(--primary-bg);
+  right: -60%;
+  transform: skew(-5deg);
+  transition: 0.3s;
+  z-index: 3;
+}
+
+.profile-img .tag-occupation {
+  bottom: 15px;
+  background-color: var(--sec-color);
+  font-family: var(--font-mono);
+  color: var(--primary-bg);
+  right: -80%;
+  transform: skew(-5deg);
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.profile-img:hover .tag-name,
+.profile-img:hover .tag-occupation {
+  right: -2%;
+}
+
+.profile-img .tag-occupation::before {
+  content: '<>';
+  margin-right: 0.3rem;
+  color: var(--primary-color-dark);
+}
+
+.profile-img .tag-occupation::after {
+  content: '</>';
+  margin-left: 0.3rem;
+  color: var(--primary-color-dark);
 }
