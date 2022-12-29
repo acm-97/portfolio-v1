@@ -10,11 +10,13 @@ const resources = {
     common: en.common,
     home: en.home,
     about: en.about,
+    experience: en.experience,
   },
   es: {
     common: es.common,
     home: es.home,
     about: es.about,
+    experience: es.experience,
   },
 };
 

@@ -1,0 +1,19 @@
+{
+  "crai": {
+    "position": "Ingeniero",
+    "dateRange": "Jul 2022 - Presente",
+    "description": {
+      "1": "Uso de una variedad de diferentes lenguajes, plataformas, marcos y sistemas de gestión de contenidos como JavaScript, TypeScript, Python, Angular, Proxmox y WordPress.",
+      "2": "Trabajé con un equipo de desarrolladores para crear una serie de aplicaciones web destinadas a facilitar el seguimiento y la evaluación de las publicaciones científicas a nivel nacional cubano."
+    }
+  },
+  "dofleini": {
+    "position": "Front-End Developer",
+    "dateRange": "Jul 2021 - May 2022",
+    "description": {
+      "1": "Desarrollo y mantenimiento de código para sitios web internos y de clientes utilizando principalmente JavaScript, TypeScript, React.js, Next.js y CSS.",
+      "2": "Trabajé en diferentes tipos de proyectos nacionales e internacionales como: comercio electrónico y sistemas de gestión de proyectos.",
+      "3": "Interacción diaria con el resto del equipo de desarrollo y con los clientes, proporcionando apoyo y dando y recibiendo comentarios sobre las funciones terminadas y en proceso."
+    }
+  }
+}

@@ -5,11 +5,16 @@
 :root {
   --primary-color: #ccd6f6;
   --primary-color-dark: #94a3b8;
+
   --sec-color-light: #99f6e4;
   --sec-color: #5eead4;
   --sec-color-dark: #14b8a6;
+
   --primary-bg: #2a303c;
-  --lightest-navy: #233554;
+  --primary-bg-light: hsl(220, 18%, 30%);
+  --primary-bg-dark: hsl(220, 18%, 17%);
+
+  --sec-bg: #134e4a;
 
   --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -32,8 +37,21 @@
 }
 
 .primary-bg {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
 }
+
+.sec-bg {
+  background-color: var(--sec-bg);
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.primary-color-dark {
+  color: var(--primary-color-dark);
+}
+
 .sec-color {
   color: var(--sec-color);
 }
@@ -75,20 +93,25 @@ a:hover {
 }
 
 .underline {
+  position: relative;
   text-decoration: none;
   width: 100%;
+}
+
+.underline:hover {
+  color: var(--sec-color) !important;
 }
 
 .underline:before {
   content: '';
   position: absolute;
   width: 100%;
-  height: 0.1875rem;
+  height: 0.15rem;
   bottom: 0;
   left: 0;
   background: var(--sec-color-light);
   visibility: hidden;
-  border-radius: 0.3125rem;
+  border-radius: 1rem;
   transform: scaleX(0);
   transition: 0.25s linear;
 }
@@ -127,6 +150,7 @@ h4 a,
 .section {
   margin: 0 auto;
   max-width: 62.5rem;
+  padding: 100px 0;
 }
 
 .section-hidden {
@@ -156,7 +180,7 @@ h4 a,
 }
 
 .btn-teal:hover {
-  background-color: #134e4a;
+  background-color: var(--sec-bg);
   color: var(--sec-color);
   border-color: var(--sec-color);
 }

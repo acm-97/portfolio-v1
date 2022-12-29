@@ -6,12 +6,12 @@ import { SectionHeader as Header, Link } from '@/components';
 
 import '@/styles/about.css';
 
-type AboutProps = { sectioRef: any };
+// type AboutProps = { sectioRef: any };
 
-const About = ({ sectioRef }: AboutProps) => {
+const About = () => {
   const { t } = useTranslation('about');
   return (
-    <div id="about" ref={sectioRef} className="w-full">
+    <div className="w-full">
       <Header num={1} text={t('title')} />
       <div className="grid-ab">
         <div className="text-xl">

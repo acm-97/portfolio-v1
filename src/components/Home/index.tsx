@@ -6,7 +6,7 @@ import { memo } from 'react';
 const Home = () => {
   const { t } = useTranslation('home');
   return (
-    <div id="home" className="text-start">
+    <div className="flex w-full flex-col items-start text-start">
       <div>
         <h6 className="sec-color mb-5 ml-1 font-mono font-normal">{t('salute')}</h6>
       </div>
@@ -27,7 +27,6 @@ const Home = () => {
           {t('downloadResume')}
         </button>
       </div>
-      {/* <p className="gradient-text">Home Loaded</p> */}
     </div>
   );
 };
