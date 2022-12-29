@@ -200,7 +200,7 @@ h4 a,
     padding: 0 6rem;
   }
 
-  .numbered-heading::after {
+  .numbered-header::after {
     width: 12.5rem;
   }
 }
@@ -210,7 +210,7 @@ h4 a,
     padding: 0 2rem;
   }
 
-  .numbered-heading::after {
+  .numbered-header::after {
     width: 100%;
   }
 
@@ -220,7 +220,7 @@ h4 a,
 }
 
 @media (max-width: 600px) {
-  .numbered-heading::after {
+  .numbered-header::after {
     margin-left: 0.625rem;
   }
 }
