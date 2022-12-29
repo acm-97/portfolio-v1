@@ -17,7 +17,7 @@ const Experience = () => {
   const { t } = useTranslation('experience');
 
   return (
-    <div className="max-w-2xl">
+    <div className="section-hidden max-w-2xl">
       <Header num={2} text={t('title')} />
       <div className="grid-ex">
         <div className="tabs flex-col">

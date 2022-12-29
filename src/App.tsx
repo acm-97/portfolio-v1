@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { scrollToHashSection, showSections } from './utils';
 
-import { Navbar, Home, About, Experience } from '@/components';
+import { Navbar, Home, About, Experience, Work } from '@/components';
 
 const App = () => {
   const sectionAbout = useRef<HTMLDivElement>(null);
@@ -15,6 +15,7 @@ const App = () => {
     { key: 'home', component: <Home />, ref: null },
     { key: 'about', component: <About />, ref: sectionAbout },
     { key: 'experience', component: <Experience />, ref: sectionExperience },
+    { key: 'work', component: <Work />, ref: sectionWork },
   ];
 
   useEffect(() => {
@@ -35,7 +36,6 @@ const App = () => {
           id={key}
           ref={ref}
           className={classNames(
-            i > 0 && 'section-hidden',
             i === 0 ? 'min-h-[100vh]' : 'min-h-[60vh]',
             'section flex flex-col  items-center justify-center',
           )}
