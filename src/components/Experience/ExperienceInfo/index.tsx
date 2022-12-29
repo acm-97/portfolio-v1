@@ -28,7 +28,7 @@ const ExperienceInfo = ({ id, position, project, projectLink, dateRange, childre
         )}
       </>
     </h5>
-    <span className="primary-color-dark mt-2 mb-5 font-mono text-sm">{dateRange}</span>
+    <span className="primary-color-dark font--mono mt-2 mb-5 text-sm">{dateRange}</span>
     <ul className="description-list">
       {children.map((item, i) => (
         <li key={i}>{item}</li>

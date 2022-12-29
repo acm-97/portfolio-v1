@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="flex w-full flex-col items-start text-start">
       <div>
-        <h6 className="sec-color mb-5 ml-1 font-mono font-normal">{t('salute')}</h6>
+        <h6 className="sec-color font--mono mb-5 ml-1 font-normal">{t('salute')}</h6>
       </div>
 
       <div>
@@ -23,7 +23,7 @@ const Home = () => {
         <p className="mt-5 max-w-xl text-xl opacity-70">{t('description')}</p>
       </div>
       <div>
-        <button type="button" className="btn-teal btn-outline btn mt-12 font-mono">
+        <button type="button" className="btn-teal font--mono btn-outline btn mt-12">
           {t('downloadResume')}
         </button>
       </div>

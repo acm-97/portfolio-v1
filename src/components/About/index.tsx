@@ -11,7 +11,7 @@ import '@/styles/about.css';
 const About = () => {
   const { t } = useTranslation('about');
   return (
-    <div className="w-full">
+    <div className="section-hidden w-full">
       <Header num={1} text={t('title')} />
       <div className="grid-ab">
         <div className="text-xl">
