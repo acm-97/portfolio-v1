@@ -35,7 +35,7 @@ const About = ({ sectioRef }: AboutProps) => {
             <div className="profile-img-frame" />
             <div className="profile-img">
               <div className="tag-name">Alejandro Cabrera Mena</div>
-              <div className="tag-occupation">Font-End Developer</div>
+              <div className="tag-occupation">{t('occupation')}</div>
             </div>
           </div>
         </div>
