@@ -18,7 +18,7 @@ const Experience = () => {
 
   return (
     <div className="max-w-2xl">
-      <Header num={2} text="Where I’ve Worked" />
+      <Header num={2} text={t('title')} />
       <div className="grid-ex">
         <div className="tabs flex-col">
           {jobs.map((item) => (
