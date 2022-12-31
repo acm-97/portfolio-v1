@@ -1,12 +1,20 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ExternalIcon, FolderIcon, GithubIcon, LinkedInIcon, TwiterIcon, InstagramIcon } from '@/components/icons';
+import {
+  ExternalIcon,
+  FolderIcon,
+  GithubIcon,
+  LinkedInIcon,
+  TwiterIcon,
+  InstagramIcon,
+  LanguageIcon,
+} from '@/components/icons';
 import { Link } from '@/components';
 
 type IconProps = { name?: string };
 type IconRenderProps = {
-  name?: 'Folder' | 'GitHub' | 'LinkedIn' | 'Twiter' | 'Instagram' | 'External';
+  name?: 'Folder' | 'GitHub' | 'LinkedIn' | 'Twiter' | 'Instagram' | 'Language' | 'External';
   href?: string;
   className?: string;
 };
@@ -23,6 +31,8 @@ const Icon = ({ name }: IconProps) => {
       return <TwiterIcon />;
     case 'Instagram':
       return <InstagramIcon />;
+    case 'Language':
+      return <LanguageIcon />;
     default:
       return <ExternalIcon />;
   }
