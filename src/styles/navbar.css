@@ -18,7 +18,8 @@
   animation-delay: 0.7s;
 }
 
-.navbar li a:hover {
+.navbar li:hover a,
+.drawer-side li:hover a {
   color: var(--sec-color) !important;
 }
 

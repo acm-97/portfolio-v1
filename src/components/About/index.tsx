@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { memo } from 'react';
 
 import { CRAI, DOFLEINI } from '@/constants';
@@ -17,8 +17,13 @@ const About = () => {
         <div className="text-xl">
           <p>{t('history.part1')}</p>
           <p className="relative">
-            {t('history.part2.1')} <Link href={CRAI}>{t('history.part2.2')}</Link> {t('history.part2.3')}{' '}
-            <Link href={DOFLEINI}>{t('history.part2.4')}</Link> {t('history.part2.5')}
+            <Trans
+              // @ts-ignore
+              defaults={t('history.part2')}
+              values={{ crai: 'Learning and Research Resources Centre', dofleini: 'software development company' }}
+              // eslint-disable-next-line react/jsx-key, jsx-a11y/control-has-associated-label, jsx-a11y/anchor-has-content
+              components={[<a href={CRAI} />, <a href={DOFLEINI} />]}
+            />
           </p>
           <p>{t('history.part3')}</p>
           <ul className="skills-list">
@@ -32,9 +37,13 @@ const About = () => {
         </div>
         <div>
           <div className="profile-img-container">
-            <div className="profile-img-frame" />
+            <div className="profile-img-frame">
+              <div className="opacity-0">
+                <div className="profile-img" />
+              </div>
+            </div>
             <div className="profile-img">
-              <div className="tag-name">Alejandro Cabrera Mena</div>
+              <div className="tag-name">{t('fullName')}</div>
               <div className="tag-occupation">{t('occupation')}</div>
             </div>
           </div>

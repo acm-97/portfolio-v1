@@ -17,6 +17,7 @@ type IconRenderProps = {
   name?: 'Folder' | 'GitHub' | 'LinkedIn' | 'Twiter' | 'Instagram' | 'Language' | 'External';
   href?: string;
   className?: string;
+  base?: boolean;
 };
 
 const Icon = ({ name }: IconProps) => {
@@ -38,8 +39,8 @@ const Icon = ({ name }: IconProps) => {
   }
 };
 
-const IconRender = ({ name, href, className = '' }: IconRenderProps) => (
-  <div className={classnames('icon inline-block h-9 w-9 p-2', className)}>
+const IconRender = ({ name, href, className = '', base = false }: IconRenderProps) => (
+  <div className={classnames('icon', !base && ' h-9 w-9 p-2', className)}>
     {href ? (
       <Link href={href}>
         <Icon name={name} />

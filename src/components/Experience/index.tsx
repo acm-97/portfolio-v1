@@ -17,7 +17,7 @@ const Experience = () => {
   const { t } = useTranslation('experience');
 
   return (
-    <div className="section-hidden max-w-2xl">
+    <div className="section-hidden w-full max-w-2xl">
       <Header num={2} text={t('title')} />
       <div className="grid-ex">
         <div className="tabs flex-col">
@@ -28,7 +28,7 @@ const Experience = () => {
               className={item === activeTab ? 'tab--active tab' : 'tab'}
               onClick={() => setActiveTab(item)}
             >
-              {item}
+              <span>{item}</span>
             </button>
           ))}
         </div>

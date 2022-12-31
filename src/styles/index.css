@@ -1,5 +1,4 @@
 @import './tailwind.css';
-@import './navbar.css';
 @import './home.css';
 
 :root {
@@ -36,27 +35,27 @@
 }
 
 .primary-bg {
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg) !important;
 }
 
 .sec-bg {
-  background-color: var(--sec-bg);
+  background-color: var(--sec-bg) !important;
 }
 
 .primary-color {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 .primary-color-dark {
-  color: var(--primary-color-dark);
+  color: var(--primary-color-dark) !important;
 }
 
 .sec-color {
-  color: var(--sec-color);
+  color: var(--sec-color) !important;
 }
 
 .sec-color-light {
-  color: var(--sec-color-light);
+  color: var(--sec-color-light) !important;
 }
 
 .sec-color-dark {
@@ -76,10 +75,12 @@ html {
 
 body {
   font-family: var(--font-sans);
-  padding: 0 9.6875rem;
-  margin: 0 auto;
   width: 100%;
-  max-width: 100rem;
+}
+
+main {
+  padding: 0 9.6875rem;
+  width: 100%;
 }
 
 a {
@@ -89,6 +90,18 @@ a {
 a:hover {
   color: var(--sec-color-dark) !important;
   cursor: pointer;
+}
+
+.icon {
+  color: var(--primary-color) !important;
+}
+
+.icon a {
+  color: var(--primary-color) !important;
+}
+
+.icon a:hover {
+  color: var(--sec-color) !important;
 }
 
 .underline {
@@ -133,7 +146,7 @@ h6 {
 h3 a,
 h4 a,
 .navbar li a {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   text-decoration: none;
 }
 
@@ -215,27 +228,33 @@ h4 a,
 @keyframes fadeIn {
   from {
     opacity: 0;
-    /* transform: translate3d(-20%, 0, 0); */
   }
   to {
     opacity: 1;
-    /* transform: translate3d(0, 0, 0); */
   }
 }
 
 @media (max-width: 1080px) {
-  body {
+  main {
     padding: 0 6rem;
   }
 
   .numbered-header::after {
     width: 12.5rem;
   }
+
+  .grid-wo .project-content {
+    grid-column: 1 / 9;
+  }
+
+  .grid-wo:nth-of-type(2n + 1) .project-content {
+    grid-column: 5 / -1;
+  }
 }
 
 @media (max-width: 768px) {
-  body {
-    padding: 0 2rem;
+  main {
+    padding: 0 3.125rem;
   }
 
   .numbered-header::after {
@@ -245,10 +264,138 @@ h4 a,
   .grid-ab {
     display: block;
   }
+
+  .grid-ab .profile-img-container {
+    margin: 3.2rem auto 0px;
+    width: 70%;
+  }
+
+  .grid-wo:last-of-type {
+    box-shadow: 0 0.625rem 1.875rem -0.9375rem var(--navy-shadow);
+  }
+
+  .grid-wo:not(:last-of-type) {
+    margin-bottom: 70px;
+  }
+
+  .grid-wo .project-content {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+    grid-column: 1 / -1;
+    padding: 2.5rem 2.5rem 1.875rem;
+    z-index: 5;
+  }
+
+  .grid-wo:nth-of-type(2n + 1) .project-content {
+    grid-column: 1 / -1;
+    padding: 2.5rem 2.5rem 1.875rem;
+    text-align: left;
+  }
+
+  .grid-wo .project-content .project-description {
+    padding: 1.25rem 0px;
+    padding-left: 8px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .grid-wo .project-content .project-keywords {
+    justify-content: flex-start !important;
+  }
+
+  .grid-wo .project-image-wrapper {
+    grid-column: 1 / -1;
+    opacity: 0.25;
+  }
+
+  .grid-wo:nth-of-type(2n + 1) .project-image-wrapper {
+    grid-column: 1 / -1;
+  }
+
+  .grid-wo .project-image-wrapper .project-image img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .section {
+    padding: 80px 0px;
+  }
 }
 
 @media (max-width: 600px) {
   .numbered-header::after {
     margin-left: 0.625rem;
+  }
+
+  .grid-ex {
+    display: block;
+  }
+
+  .grid-ex .tabs {
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    margin-bottom: 2.5rem;
+    width: calc(100% + 100px);
+    overflow-x: auto;
+    text-align: center;
+  }
+
+  .grid-ex .tab {
+    border-left: none !important;
+    border-bottom: 0.2rem solid var(--primary-bg-light) !important;
+    min-width: 100px;
+    padding: 0 0.85rem !important;
+    justify-content: center !important;
+  }
+
+  .grid-ex .tab--active {
+    border-bottom: 0.2rem solid var(--sec-color) !important;
+  }
+
+  .grid-wo .project-content {
+    padding: 1.875rem 1.5625rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0px 1.5625rem;
+  }
+
+  .numbered-header::after {
+    margin-left: 0.625rem;
+  }
+
+  .grid-ab .profile-img-container {
+    width: 90%;
+  }
+
+  .profile-img-container .profile-img-frame {
+    left: 12%;
+  }
+
+  .grid-ex .tabs {
+    width: calc(100% + 50px);
+  }
+
+  .grid-wo .project-content {
+    padding: 1.875rem 1.5625rem 1.25rem;
+  }
+
+  .grid-wo .project-image-wrapper {
+    height: 100%;
+  }
+
+  .section {
+    padding: 60px 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  ul.skills-list {
+    display: block !important;
   }
 }

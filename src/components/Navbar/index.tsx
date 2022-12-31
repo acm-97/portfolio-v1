@@ -1,25 +1,23 @@
-import { useTranslation } from 'react-i18next';
-import { memo, useEffect, useState } from 'react';
-import classNames from 'classnames';
+import { memo, ReactNode, useEffect, useRef } from 'react';
 import { ArrowSmallUpIcon } from '@heroicons/react/24/outline';
 
-import { HideShowNav, scrollToTop } from '@/utils';
-import { routes } from '@/constants';
+import NavMenu from './NavMenu';
 
-// type NavBarProps = {};
+import { scrollToTop } from '@/utils';
 
-const Navbar = () => {
-  const { t, i18n } = useTranslation('common');
-  // eslint-disable-next-line no-restricted-globals
-  const [active, setActive] = useState(location.pathname);
+import '@/styles/navbar.css';
 
-  useEffect(() => {
-    HideShowNav();
-  });
+type NavBarProps = { children: ReactNode };
 
-  const handleLanguage = async () => {
-    if (i18n.language === 'en') await i18n.changeLanguage('es');
-    else await i18n.changeLanguage('en');
+const Navbar = ({ children }: NavBarProps) => {
+  const refDrawer = useRef<HTMLDivElement>(null);
+
+  const onChecked = (e: any) => {
+    const { checked } = e.target;
+
+    if (checked && refDrawer?.current) {
+      refDrawer.current.style.height = '100dvh';
+    } else if (refDrawer?.current) refDrawer.current.style.height = '100%';
   };
 
   const onScrollToTop = () => {
@@ -31,51 +29,38 @@ const Navbar = () => {
 
   return (
     <>
-      {/* <div className="navbar h-24" /> */}
-      <div className="navbar-fixed navbar h-24 bg-base-100 px-9 text-sm">
-        <div className="flex-1">
-          <a className="btn-ghost btn text-xl normal-case">daisyUI</a>
-        </div>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 ">
-            {routes.map((route, i) => (
-              <li key={route.name} className="p-3">
-                <a
-                  className={classNames(
-                    active === route.path && 'sec-color',
-                    'gap-1 p-0 hover:bg-transparent  focus:bg-transparent',
-                  )}
-                  href={route.path}
-                  onClick={() => setActive(route.path)}
-                >
-                  <span className="sec-color p-0">{`0${i + 1}.`}</span> {t(route.name.toLowerCase())}
-                </a>
-              </li>
-            ))}
-            <li className="p-3">
-              <button
-                type="button"
-                onClick={handleLanguage}
-                className="sec-color-light sec-color min-h-8 btn h-8 gap-2 p-3 py-0"
-              >
+      <div className="drawer drawer-end h-full flex-col" ref={refDrawer}>
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" onClick={onChecked} />
+        <div className="drawer-content flex h-full w-full">
+          {/* <!-- Navbar --> */}
+          <div className="navbar-fixed navbar h-16 w-full bg-base-100 px-4 text-sm sm:px-9">
+            <div className="mx-2 flex-1 px-2">Navbar Title</div>
+            <div className="hidden flex-none lg:block">
+              <NavMenu horizontal />
+            </div>
+            <div className="flex-none lg:hidden">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="my-drawer-3" className="btn-ghost btn-square btn">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="h-6 w-6"
+                  className="inline-block h-6 w-6 stroke-current"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                {i18n.language}
-              </button>
-            </li>
-          </ul>
+              </label>
+            </div>
+          </div>
+          {/* <!-- Page content here --> */}
+          <main>{children}</main>
+        </div>
+
+        {/* <!-- Sidebar here --> */}
+        <div className="drawer-side">
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+          <label htmlFor="my-drawer-3" className="drawer-overlay" />
+          <NavMenu />
         </div>
       </div>
 

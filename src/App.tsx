@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
-import { scrollToHashSection, showSections } from './utils';
+import { HideShowNav, scrollToHashSection, showSections } from './utils';
 
 import { Navbar, Home, About, Experience, Work } from '@/components';
 
@@ -19,6 +19,10 @@ const App = () => {
   ];
 
   useEffect(() => {
+    HideShowNav();
+  });
+
+  useEffect(() => {
     showSections();
   }, []);
 
@@ -28,22 +32,23 @@ const App = () => {
   }, [sectionAbout, sectionExperience, sectionWork, sectionContact, window.location.hash]);
 
   return (
-    <>
-      <Navbar />
-      {sections.map(({ key, component, ref }, i) => (
-        <section
-          key={`${key}-section`}
-          id={key}
-          ref={ref}
-          className={classNames(
-            i === 0 ? 'min-h-[100vh]' : 'min-h-[60vh]',
-            'section flex flex-col  items-center justify-center',
-          )}
-        >
-          {component}
-        </section>
-      ))}
-    </>
+    <div>
+      <Navbar>
+        {sections.map(({ key, component, ref }, i) => (
+          <section
+            key={`${key}-section`}
+            id={key}
+            ref={ref}
+            className={classNames(
+              i === 0 ? 'min-h-[100vh]' : 'min-h-[60vh]',
+              'section flex w-full flex-col items-center justify-center',
+            )}
+          >
+            {component}
+          </section>
+        ))}
+      </Navbar>
+    </div>
   );
 };
 

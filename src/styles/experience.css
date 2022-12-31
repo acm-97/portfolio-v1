@@ -11,7 +11,7 @@
   border-left: 0.2rem solid var(--primary-bg-light) !important;
   justify-content: flex-start !important;
   font-family: var(--font-mono);
-  padding: 0 20px !important;
+  padding: 0 1.25rem !important;
   height: 2.5rem !important;
   overflow: hidden;
 }
