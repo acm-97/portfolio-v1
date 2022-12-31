@@ -4,12 +4,13 @@
     "part1": "Soy graduado en ingeniería informática desde julio de 2020. Descubrí mi amor por el desarrollo web durante el 5to año de la carrera, cuando decidí hacer mi tesis de graduación con una aplicación web, creando mi primera aplicación con JavaScript, HTML y CSS.",
     "part2": {
       "1": "En septiembre de 2020 comencé mi carrera como desarrollador profesional en el ",
-      "2": "Centro de Recursos para el Aprendizaje y la Investigación ",
-      "3": "de la Universidad de Pinar del Río, participando en el desarrollo de scripts, API's and web applications. Con el tiempo fui adquiriendo experiencia, trabajé también para una ",
-      "4": "empresa de desarrollo de software ",
-      "5": "donde participé en varios proyectos nacionales e internacionales."
+      "link1": "Centro de Recursos para el Aprendizaje y la Investigación ",
+      "2": "de la Universidad de Pinar del Río, participando en el desarrollo de scripts, API's and web applications. Con el tiempo fui adquiriendo experiencia, trabajé también para una ",
+      "link2": "empresa de desarrollo de software ",
+      "3": "donde participé en varios proyectos nacionales e internacionales."
     },
     "part3": "He aquí algunas tecnologías con las que he estado trabajando recientemente:"
   },
+  "fullName": "Alejandro Cabrera Mena",
   "occupation": "Desarrollador Front-End"
 }

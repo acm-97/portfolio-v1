@@ -1,0 +1,13 @@
+{
+  "myBuilds": {
+    "acmfolio": {
+      "description": "Second iteration of my personal website. It's meant to look like a linux terminal but with a bit more styling and has some of the functions you'll find in a standard terminal."
+    },
+    "snakegame": {
+      "description": "Based on the idea of the classic snake games, with the exception that this one accepts some options, which makes it more customizable and maybe more fun. Available in <0>{{npm}}</0> repositories if you want to play with it. And if you find any bugs let me know (^_~)."
+    },
+    "eslintprettier": {
+      "description": "Available in <0>{{npm}}</0> repositories. Made with the eslint and prettier rules I use in my projects. Of course you can always overwrite them with your own rules, if you wish."
+    }
+  }
+}

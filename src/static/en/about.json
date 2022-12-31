@@ -4,12 +4,13 @@
     "part1": "I am a computer engineering graduate since July 2020. I discovered my love for web development during the 5th year of my degree, when I decided to do my graduation thesis with a web application, creating my first application with JavaScript, HTML and CSS.",
     "part2": {
       "1": "In September 2020 I started my career as a professional developer at the ",
-      "2": "Learning and Research Resources Centre ",
-      "3": "of the University of Pinar del Río, participating in the development of scripts, API's and web applications. Over time I gained experience, I worked for a  ",
-      "4": "software development company ",
-      "5": "where I participated in several national and international projects."
+      "link1": "Learning and Research Resources Centre ",
+      "2": "of the University of Pinar del Río, participating in the development of scripts, API's and web applications. Over time I gained experience, I worked for a  ",
+      "link2": "software development company ",
+      "3": "where I participated in several national and international projects."
     },
     "part3": "Here are a few technologies I’ve been working with recently:"
   },
+  "fullName": "Alejandro Cabrera Mena",
   "occupation": "Front-End Developer"
 }

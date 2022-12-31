@@ -1,0 +1,13 @@
+{
+  "myBuilds": {
+    "acmfolio": {
+      "description": "Segunda iteración de mi sitio web personal. Está pensado para parecerse a un terminal linux pero con un poco más de estilo y tiene algunas de las funciones que encontrarás en un terminal estándar."
+    },
+    "snakegame": {
+      "description": "Basado en la idea de los clásicos juegos de la serpiente, con la salvedad de que éste acepta algunas opciones, lo que lo hace más personalizable y quizás más divertido. Disponible en los repositorios<0>{{npm}}</0> si quieres jugar con él. Y si encuentras algún error házmelo saber. (^_~)."
+    },
+    "eslintprettier": {
+      "description": "Disponible en los repositorios<0>{{npm}}</0>. Hecho con las reglas de eslint y prettier que uso en mis proyectos. Por supuesto siempre puedes sobreescribirlas con tus propias reglas, si asi lo deseas."
+    }
+  }
+}
